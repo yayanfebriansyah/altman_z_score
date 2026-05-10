@@ -103,7 +103,7 @@ if ticker_input:
             st.subheader(f"Sektor: {data['Sector']}")
 
             with st.expander("📖 Lihat Deskripsi Perusahaan"):
-                    st.write(data['Description'])
+                    st.write(data['longBusinessSummary'])
             st.divider()
             
             z = data['Z-Score']
