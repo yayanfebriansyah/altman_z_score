@@ -148,19 +148,19 @@ if ticker_input:
                 
                 # ------------------------
                 with col_head3:
-                    per = ticker.info.get('trailingPE', 'N/A')
+                    per = ticker.info.get('trailingPE', 0)
                     st.metric("Price to Earning Ratio", f"{per:.2f}")
 
                 with col_head4:
-                    pbv = ticker.info.get('priceToBook', 'N/A')
+                    pbv = ticker.info.get('priceToBook', 0)
                     st.metric("Price to Book Ratio", f"{pbv:.2f}")
                 
                 with col_head5:
-                    crprice = ticker.info.get('currentPrice', 'N/A')
+                    crprice = ticker.info.get('currentPrice', 0)
                     st.metric("Current Price", f"Rp{crprice:,.0f}")
                 
                 with col_head6:
-                    netmargin = ticker.info.get('profitMargins', 'N/A')
+                    netmargin = ticker.info.get('profitMargins', 0)
                     st.metric("Net Profit Margin", f"{netmargin*100:.2f}%")
                 
                 
