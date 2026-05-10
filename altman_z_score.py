@@ -107,8 +107,9 @@ if ticker_input:
         else:
             # Display Hasil Utama
             st.header(f"{data['Name']}")
-            st.subheader(f"Sector: {data['Sector']}")
-            st.subheader(f"Industry: {data['Industry']}")
+            st.write(f"**Sektor:** {data['Sector']} | **Industri:** {data['Industry']}")
+            # st.subheader(f"Sector: {data['Sector']}")
+            # st.subheader(f"Industry: {data['Industry']}")
 
             if data['Website']:
                 st.link_button("🌐 Kunjungi Situs Resmi", data['Website'])
