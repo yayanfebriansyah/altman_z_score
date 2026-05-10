@@ -32,6 +32,8 @@ def calculate_altman_z_score(ticker_symbol):
         latest_is = income_stmt.iloc[:, 0]
 
         desc = info.get('longBusinessSummary','')
+        industry = info.get('industry','')
+        website = info.get('website','')
 
         # Komponen perhitungan
         total_assets = latest_bs.get('Total Assets', 0)
@@ -67,6 +69,8 @@ def calculate_altman_z_score(ticker_symbol):
             'Name': info.get('longName', symbol),
             'Sector': sector,
             'Description': desc,
+            'Industry': industry,
+            'Website':website,
             'Z-Score': round(z_score, 2),
             'Components': {
                 'X1 (Liquidity)': round(x1, 4),
@@ -103,8 +107,14 @@ if ticker_input:
         else:
             # Display Hasil Utama
             st.header(f"{data['Name']}")
-            st.subheader(f"Sektor: {data['Sector']}")
+            st.subheader(f"Sector: {data['Sector']}")
+            st.subheader(f"Industry: {data['Industry']}")
 
+            if data['Website']:
+                    st.link_button("🌐 Kunjungi Situs Resmi", data['Website'])
+                else:
+                    st.write("🌐 *Website tidak tersedia*")
+                    
             with st.expander("📖 Lihat Deskripsi Perusahaan"):
                     st.write(data['Description'])
             st.divider()
