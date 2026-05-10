@@ -111,9 +111,9 @@ if ticker_input:
             st.subheader(f"Industry: {data['Industry']}")
 
             if data['Website']:
-                    st.link_button("🌐 Kunjungi Situs Resmi", data['Website'])
-                else:
-                    st.write("🌐 *Website tidak tersedia*")
+                st.link_button("🌐 Kunjungi Situs Resmi", data['Website'])
+            else:
+                st.write("🌐 *Website tidak tersedia*")
                     
             with st.expander("📖 Lihat Deskripsi Perusahaan"):
                     st.write(data['Description'])
