@@ -101,6 +101,10 @@ if ticker_input:
             # Display Hasil Utama
             st.header(f"{data['Name']}")
             st.subheader(f"Sektor: {data['Sector']}")
+
+            with st.expander("📖 Lihat Deskripsi Perusahaan"):
+                    st.write(data['Description'])
+            st.divider()
             
             z = data['Z-Score']
             
