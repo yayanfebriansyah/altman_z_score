@@ -110,7 +110,7 @@ def calculate_piotroski(ticker, info):
         return None, str(e)
 
 # --- ANTARMUKA UTAMA (UI) ---
-col1, col2 = st.columns([1, 3])
+col1, col2 = st.columns([1, 5])
 
 with col1:
     st.image("logo-bursa-efek-indonesia-final.webp", width=100)
