@@ -31,6 +31,8 @@ def calculate_altman_z_score(ticker_symbol):
         latest_bs = balance_sheet.iloc[:, 0]
         latest_is = income_stmt.iloc[:, 0]
 
+        desc = info.get('longBusinessSummary','')
+
         # Komponen perhitungan
         total_assets = latest_bs.get('Total Assets', 0)
         total_liabilities = latest_bs.get('Total Liabilities Net Minority Interest', 
@@ -64,6 +66,7 @@ def calculate_altman_z_score(ticker_symbol):
         details = {
             'Name': info.get('longName', symbol),
             'Sector': sector,
+            'Description': desc,
             'Z-Score': round(z_score, 2),
             'Components': {
                 'X1 (Liquidity)': round(x1, 4),
@@ -103,7 +106,7 @@ if ticker_input:
             st.subheader(f"Sektor: {data['Sector']}")
 
             with st.expander("📖 Lihat Deskripsi Perusahaan"):
-                    st.write(data['longBusinessSummary'])
+                    st.write(data['Description'])
             st.divider()
             
             z = data['Z-Score']
