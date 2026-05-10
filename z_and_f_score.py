@@ -113,7 +113,7 @@ def calculate_piotroski(ticker, info):
 col1, col2 = st.columns([1, 5])
 
 with col1:
-    st.image("logo-bursa-efek-indonesia-final.webp", width=100)
+    st.image("logo-bursa-efek-indonesia-final.webp", width=120)
 
 with col2:
     st.title("Financial Health & Fundamental Dashboard")
